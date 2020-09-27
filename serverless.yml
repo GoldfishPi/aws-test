@@ -7,3 +7,12 @@ functions:
     serverless:
         handler: ./dist/index.handler
         name: serverless-hello-world
+        events: 
+            method: get
+            path: /
+            integration: lambda
+            request:
+                template:
+                    text/xhtml: '{"stage": "$context.stage"}'
+                    application/json: '{ "httpMethod" : "$context.httpMethod" }'
+            
