@@ -1,9 +1,14 @@
-const handler = async () => {
-    const res = {
-        statusCode: 200,
-        body: JSON.stringify('Hello world aws lambda + ci/cd!!')
-    }
-    return res;
-}
+import express from 'express';
+import serverless from 'serverless-http';
+
+const app = express();
+app.use(express.urlencoded({ extended:true }));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send({ msg:'Hello World Serverless' })
+});
+
+const handler = serverless(app);
 
 export { handler };
