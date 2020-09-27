@@ -5,3 +5,5 @@ const handler = async () => {
     }
     return res;
 }
+
+export { handler };
