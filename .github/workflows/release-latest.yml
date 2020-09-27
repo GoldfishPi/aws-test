@@ -31,6 +31,8 @@ jobs:
               ssh-agent -a $SSH_AUTH_SOCK > /dev/null
               ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
         - uses: actions/setup-node@v1
+          env:
+              SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           with:
             node-version: ${{ matrix.node-version }}
         - run: npm install && npm run build
