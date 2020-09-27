@@ -11,4 +11,8 @@ app.get('/', (req, res) => {
 
 const handler = serverless(app);
 
-export { handler };
+const lambda = () => {
+    return 'hello lol'
+}
+
+export { handler, lambda };

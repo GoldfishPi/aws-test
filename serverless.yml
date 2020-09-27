@@ -1,0 +1,9 @@
+service: serviceless-hello-world
+
+provider:
+    name: aws
+    runtime: nodejs12.x
+functions:
+    serverless:
+        handler: ./dist/index.handler
+        name: serverless-hello-world
