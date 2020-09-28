@@ -3,16 +3,12 @@ service: serviceless-hello-world
 provider:
     name: aws
     runtime: nodejs12.x
+
 functions:
-    serverless:
+    test:
         handler: ./dist/index.handler
         name: serverless-hello-world
         events: 
-            method: get
-            path: whatever
-            integration: lambda
-            request:
-                template:
-                    text/xhtml: '{"stage": "$context.stage"}'
-                    application/json: '{ "httpMethod" : "$context.httpMethod" }'
-            
+            - hhtpApi:
+                method: GET
+                path: /
