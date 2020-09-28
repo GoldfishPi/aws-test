@@ -2,17 +2,18 @@ import express from 'express';
 import serverless from 'serverless-http';
 
 const app = express();
+
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send({ msg:'Hello World Serverless' })
+app.get('/', (_, res) => {
+    res.send({ msg:'Hello World Serverless this is a test' })
 });
 
 const handler = serverless(app);
 
-const lambda = () => {
-    return 'hello lol'
+const lambda = (data:any) => {
+    return data.body;
 }
 
 export { handler, lambda };
