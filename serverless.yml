@@ -1,4 +1,4 @@
-service: serviceless-hello-world
+service: serverless
 
 provider:
     name: aws
@@ -7,7 +7,7 @@ provider:
 functions:
     test:
         handler: ./dist/index.handler
-        name: serverless-hello-world
+        name: hello-world
         events: 
             - hhtpApi:
                 method: GET
