@@ -9,7 +9,7 @@ functions:
         name: serverless-hello-world
         events: 
             method: get
-            path: /
+            path: whatever
             integration: lambda
             request:
                 template:
