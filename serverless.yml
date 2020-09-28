@@ -5,10 +5,14 @@ provider:
     runtime: nodejs12.x
 
 functions:
-    test:
+    testStart:
         handler: ./dist/index.handler
-        name: hello-world
+        name: test-start
         events: 
-            - hhtpApi:
-                method: GET
-                path: /
+            - http: GET hello
+        destinations:
+            onSuccess: testSuccess
+    testSuccess:
+        name: test-success
+        handler: ./dist/index.lambda
+
